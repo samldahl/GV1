@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroceryVision— Realtime Database Validation Stack</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <canvas id="space" aria-hidden="true"></canvas>
+  <a href="/" class="logo">
+    <img src="/images/Chit2.png" alt="Chit Logo">
+  </a>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+  <main class="content">
+    <article class="glass-card">
+      <h1>Grocery Vision</h1>
+      <p>Pioneering soft cyborg retail technologies <b>10x</b> frontline productivity.</p>
+      <form class="email-form" action="#" method="POST">
+        <input 
+          type="email" 
+          class="email-input" 
+          placeholder="Enter your email" 
+          required
+          aria-label="Email address"
+        >
+        <button type="submit" class="submit-button">Join Waitlist</button>
+      </form>
+    </article>
+  </main>
+  <script src="stars.js"></script>
+  <script src="supabase.js"></script>
+  <script src="theme.js"></script>
+</body>
+</html>
+
+
+// This is a simple starfield effect that uses the mouse position to push the stars away from the mouse.
+// It's a fun way to create a dynamic and interactive background.
