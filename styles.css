@@ -1,0 +1,291 @@
+@font-face {
+  font-family: 'JetBrains';
+  src: url('fonts/JetbrainsMonoRegular-RpvmM.ttf');
+}
+
+:root {
+  /* Light theme (default) */
+  --glass-bg: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-color: #2c2c2c;
+  --background: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --input-focus-bg: rgba(0, 0, 0, 0.08);
+  --button-bg: rgba(0, 0, 0, 0.1);
+  --button-hover-bg: rgba(0, 0, 0, 0.15);
+  --placeholder-color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --text-color: #ffffff;
+  --background: #000000;
+  --shadow-color: rgba(31, 38, 135, 0.37);
+  --input-bg: rgba(255, 255, 255, 0.1);
+  --input-focus-bg: rgba(255, 255, 255, 0.15);
+  --button-bg: rgba(255, 255, 255, 0.2);
+  --button-hover-bg: rgba(255, 255, 255, 0.3);
+  --placeholder-color: rgba(255, 255, 255, 0.6);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--background);
+  font-family: 'JetBrains', monospace;
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--background);
+  display: block;
+  z-index: 0;
+  transition: background-color 0.3s ease;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card h1 {
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'JetBrains', monospace;
+}
+
+.glass-card p {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-family: 'JetBrains', monospace;
+}
+
+.email-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.email-input {
+  flex: 1;
+  min-width: 200px;
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  padding: 0.8rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'JetBrains', monospace;
+}
+
+.email-input:focus {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+  background: var(--input-focus-bg);
+}
+
+.email-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.submit-button {
+  background: var(--button-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 120px;
+  width: auto;
+  font-family: 'JetBrains', monospace;
+}
+
+.submit-button:hover, .submit-button:focus {
+  background: var(--button-hover-bg);
+  transform: translateY(-2px);
+}
+
+.submit-button:focus {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .email-input, .submit-button {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 1.5rem;
+    margin: 1rem 0.5rem;
+  }
+
+  .glass-card h1 {
+    font-size: 2rem;
+  }
+
+  .email-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .email-input, .submit-button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .submit-button {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.4rem;
+  }
+  .logo img {
+    height: 1.5rem;
+  }
+
+  .theme-toggle {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem;
+  }
+  
+  .theme-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 1.25rem;
+    margin: 0.75rem 0.5rem;
+  }
+
+  .glass-card h1 {
+    font-size: 1.75rem;
+    font-family: 'JetBrains', monospace;
+  }
+
+  .glass-card p {
+    font-size: 1rem;
+    font-family: 'JetBrains', monospace;
+  }
+}
+
+.logo {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 2;
+  padding: 0.5rem;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.logo img {
+  height: 2rem;
+  width: auto;
+  display: block;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  padding: 0.5rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: var(--button-hover-bg);
+}
+
+.theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
+} 
