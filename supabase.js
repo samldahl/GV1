@@ -2,9 +2,10 @@
 // const supabaseUrl = 'YOUR_SUPABASE_URL'
 // const supabaseKey = 'YOUR_SUPABASE_ANON_KEY'
 
+
 const supabaseUrl = 'https://svhjupycgwsooohqhhyl.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN2aGp1cHljZ3dzb29vaHFoaHlsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc4NjMzNTYsImV4cCI6MjA2MzQzOTM1Nn0.g1ReajhRDJbFwUDcFlniuncGqUy9BTNictz9FoEKzIs'
-const supabase = supabase.createClient(supabaseUrl, supabaseKey)
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
 
 // Handle form submission
 document.querySelector('.email-form').addEventListener('submit', async (e) => {
